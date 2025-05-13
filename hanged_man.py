@@ -26,4 +26,7 @@ while True:
     if chances == 0:
         print('Przegrałes!')
         break
-            
+    if (sorted(set(answer))) == (sorted(set(shots_fired))):
+        print('Wygrałes!')
+        break
+    
