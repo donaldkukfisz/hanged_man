@@ -1,0 +1,1 @@
+Prosta gra w wisielca. Odgadujemy hasło z dostępnych słów, wybieranych losowo przy każdym uruchomieniu programu. Bazowo zawiera 5 szans, w planach dodanie poziomów trudności które zmienią ich ilośc oraz dodanie kategorii pytań.
