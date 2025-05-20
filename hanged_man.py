@@ -1,4 +1,5 @@
 import sys
+import os
 import string
 import random
 from words_to_guess import english_words, polish_words
@@ -27,7 +28,7 @@ def choose_difficulty():
         msg = f'Wybrano poziom ŚREDNI. Masz {chances} prób odgadnięcia!'
     elif level == '3':
         chances = 3
-        msg = f'Wybrano poziom TRUDNY. Masz {chances} prób odgadnięcia!'
+        msg = f'Wybrano poziom TRUDNY. Masz {chances} prób odgadnięcia!\n'
         
     return chances, msg
     
@@ -39,6 +40,7 @@ while True:
     
     chances = 0
     chances, msg = choose_difficulty()
+    print()
     print(msg)
     
     language = input('Wybierz język w jakim chcesz odgadnąc słowo: 1. Polski, 2. Angielski: ')
@@ -48,8 +50,10 @@ while True:
         continue
     if language == '1':
         word = random.choice(polish_words)
+        print('Wybrano słowo po Polsku! Hasło zostało wylosowane.')
     elif language == '2':
         word = random.choice(english_words)
+        print('Wybrano słowo po Angielsku! Hasło zostało wylosowane.')
     
     allready_used_letters = []
     user_answers = []
@@ -57,7 +61,6 @@ while True:
     for letter in word:
         user_answers.append('_')
     
-    print('Słowo zostało wylosowane!')
     
     while True:
         
@@ -86,6 +89,7 @@ while True:
                 print()
                 end = input('Czy chcesz zagrać jeszcze raz? T/N: ')
                 if end.lower() == 't':
+                    os.system('cls')
                     break
                 
                 else:
@@ -100,6 +104,7 @@ while True:
                 print(f'GRATULACJE! Odgadłes słowo! Odpowiedź brzmi: {word.upper()}')
                 sys.exit(0)
         
+        print()
         print(user_answers)
     
     
